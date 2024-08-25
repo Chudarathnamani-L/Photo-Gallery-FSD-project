@@ -3,41 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photo Gallery</title>
+    <title>Photo Gallery Website</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
+    <!-- Header -->
+    <header>
         <h1>Photo Gallery</h1>
-        <nav class="navbar">
-            <button onclick="showModule('photos')">Collections of Photos</button>
-            <button onclick="showModule('upload')">Upload Pictures</button>
-            <button onclick="showModule('favorites')">Favorites</button>
+        <nav>
+            <a href="#gallery">Gallery</a>
+            <a href="#upload">Upload Image</a>
+            <a href="#search">Search Images</a>
+            <a href="#description">Add Description</a>
         </nav>
-        
-        <div class="module" id="photos-module">
-            <h2>Collections of Photos</h2>
-            <div class="gallery" id="photos-gallery">
-                <!-- Photos will be dynamically inserted here -->
-            </div>
-        </div>
+    </header>
 
-        <div class="module hidden" id="upload-module">
-            <h2>Upload Pictures</h2>
-            <form id="upload-form">
-                <input type="file" id="file-input" accept="image/*,video/*" multiple>
-                <button type="submit">Upload</button>
+    <!-- Photo Gallery Section -->
+    <section id="gallery" class="gallery">
+        <h2>Our Photo Collection</h2>
+        <div class="gallery-grid">
+            <!-- Example Images; replace with actual images -->
+            <div class="gallery-item">
+                <img src="images/photo1.jpg" alt="Photo 1">
+            </div>
+            <div class="gallery-item">
+                <img src="images/photo2.jpg" alt="Photo 2">
+            </div>
+            <!-- More images can be added here -->
+        </div>
+    </section>
+
+    <!-- Image Upload Form -->
+    <section id="upload">
+        <div class="form-container">
+            <h2>Upload Image</h2>
+            <form id="uploadForm" enctype="multipart/form-data">
+                <label for="title">Image Title:</label>
+                <input type="text" id="title" name="title" required>
+
+                <label for="category">Category:</label>
+                <input type="text" id="category" name="category">
+
+                <label for="image">Choose Image:</label>
+                <input type="file" id="image" name="image" accept="image/*" required>
+
+                <button type="submit">Upload Image</button>
             </form>
         </div>
+    </section>
 
-        <div class="module hidden" id="favorites-module">
-            <h2>Favorites</h2>
-            <div class="gallery" id="favorites-gallery">
-                <!-- Favorite photos will be dynamically inserted here -->
-            </div>
+    <!-- Search Form -->
+    <section id="search">
+        <div class="form-container">
+            <h2>Search Gallery</h2>
+            <form id="searchForm">
+                <label for="query">Search:</label>
+                <input type="text" id="query" name="query" placeholder="Enter keywords" required>
+
+                <label for="category">Category:</label>
+                <input type="text" id="category" name="category">
+
+                <button type="submit">Search</button>
+            </form>
         </div>
-    </div>
+    </section>
 
-    <script src="script.js"></script>
+    <!-- Image Description Form -->
+    <section id="description">
+        <div class="form-container">
+            <h2>Add or Edit Description</h2>
+            <form id="descriptionForm">
+                <label for="imageId">Image ID or Title:</label>
+                <input type="text" id="imageId" name="imageId" required>
+
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="4" required></textarea>
+
+                <button type="submit">Submit Description</button>
+            </form>
+        </div>
+    </section>
+
+    <script src="JS.js"></script>
 </body>
 </html>
